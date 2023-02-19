@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script>
+      function addItem(id) {
+        let event = new CustomEvent('addItem', {
+          detail: {product: 'BMW Car', items: '2'},
+        })
+        const elem = document.getElementById(id)
+        document.dispatchEvent(event)
+      }
+
+      function removeItem(id) {
+        let event = new CustomEvent('removeItem', {
+          detail: {product: 'Mini Car', items: '1'},
+        })
+        const elem = document.getElementById(id)
+        document.dispatchEvent(event)
+      }
+    </script>
+  </head>
+  <body>
+    <div>
+      <esi:include src="https://mtamara.github.io/webcom/"></esi:include>
+    </div>
+    <hr />
+    <div style="border: 1px solid black">
+      <p>BMW car</p>
+      <button
+        id="product1_add"
+        style="border: 1px solid black"
+        onclick="addItem('product1_add')"
+      >
+        ADD
+      </button>
+      <button
+        id="product1_remove"
+        style="border: 1px solid black"
+        onclick="removeItem('product1_remove')"
+      >
+        REMOVE
+      </button>
+    </div>
+    <br />
+    <div style="border: 1px solid black">
+      <p>MINI car</p>
+      <button
+        id="product2_add"
+        style="border: 1px solid black"
+        onclick="addItem('product2_add')"
+      >
+        ADD
+      </button>
+      <button
+        id="product2_remove"
+        style="border: 1px solid black"
+        onclick="removeItem('product2_remove')"
+      >
+        REMOVE
+      </button>
+    </div>
+  </body>
+</html>
