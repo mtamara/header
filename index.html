@@ -5,7 +5,6 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <script src="csi.min.js"></script>
     <script>
       function addItem(id) {
         let event = new CustomEvent('addItem', {
@@ -26,7 +25,20 @@
   </head>
   <body>
     <div>
-      <div data-include="https://mtamara.github.io/webcom/index.html"></div>
+      <esi:try>
+        <esi:attempt>
+          <esi:include
+            src="https://unpkg.com/tm-webcom@1.0.0/index.html"
+            alt="test"
+          />
+        </esi:attempt>
+        <esi:except>
+          <div
+            id="should_show_fallback_header"
+            style="width: 300px; height: 50px; background-color: red"
+          ></div>
+        </esi:except>
+      </esi:try>
     </div>
     <hr />
     <div style="border: 1px solid black">
